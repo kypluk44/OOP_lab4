@@ -6,6 +6,7 @@
 #include <memory>
 #include <stdexcept>
 #include <type_traits>
+#include <utility>
 
 #include "Figure.h"
 
@@ -31,7 +32,7 @@ public:
     requires(!std::is_pointer_v<T> && !is_shared_ptr<T>::value)
     void add(U&& value) {
         ensureCapacity();
-        data_[size_++] = std::move(value);
+        data_[size_++] = std::forward<U>(value);
     }
 
     template <typename U>

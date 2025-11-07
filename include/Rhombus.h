@@ -42,10 +42,10 @@ public:
 
     void read(std::istream& is) override {
         if (is.rdbuf() == std::cin.rdbuf())
-            std::cout << "Enter 4 rhombus vertices (x y) in order:\n";
+            std::cout << "Введите 4 вершины ромба (x y) по порядку:\n";
 
         for (auto& v : vertices_) is >> *v;
-        if (!validate()) throw std::invalid_argument("Points do not form a rhombus");
+        if (!validate()) throw std::invalid_argument("Точки не образуют ромб");
     }
 
     Point<T> center() const override {

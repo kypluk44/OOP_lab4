@@ -16,37 +16,37 @@ public:
     T y{0};
 
     Point() = default;
-    constexpr Point(T px, T py) : x(px), y(py) {}
+    Point(T px, T py) : x(px), y(py) {}
 
-    constexpr Point operator+(const Point& other) const {
+    Point operator+(const Point& other) const {
         return Point(x + other.x, y + other.y);
     }
 
-    constexpr Point operator-(const Point& other) const {
+    Point operator-(const Point& other) const {
         return Point(x - other.x, y - other.y);
     }
 
-    constexpr Point& operator+=(const Point& other) {
+    Point& operator+=(const Point& other) {
         x += other.x;
         y += other.y;
         return *this;
     }
 
-    constexpr Point& operator-=(const Point& other) {
+    Point& operator-=(const Point& other) {
         x -= other.x;
         y -= other.y;
         return *this;
     }
 
-    constexpr Point operator/(double value) const {
+    Point operator/(double value) const {
         return Point(static_cast<T>(x / value), static_cast<T>(y / value));
     }
 
-    constexpr bool operator==(const Point& other) const {
+    bool operator==(const Point& other) const {
         return x == other.x && y == other.y;
     }
 
-    constexpr bool operator!=(const Point& other) const {
+    bool operator!=(const Point& other) const {
         return !(*this == other);
     }
 
